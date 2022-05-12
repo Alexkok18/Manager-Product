@@ -14,11 +14,11 @@ class ManagerProductTest {
     ManagerProduct allProduct = new ManagerProduct();
 
     Product bookOne = new Book("Гарри Поттер и философский камень", 1, "Роулинг Джоан Кэтлин");
-    Product bookTwo = new Book("Гарри Поттер и Тайная комната", 2,"Роулинг Джоан Кэтлин" );
-    Product bookThree = new Book("Гарри Поттер и узник Азкабана", 3,"Роулинг Джоан Кэтлин" );
-    Product bookFour = new Book("Гарри Поттер и Кубок Огня", 4,"Роулинг Джоан Кэтлин" );
-    Product bookFive = new Book("Гарри Поттер и Орден Феникса", 5,"Роулинг Джоан Кэтлин" );
-    Product bookSix = new Book("Гарри Поттер и Принц-полукровка", 6,"Роулинг Джоан Кэтлин" );
+    Product bookTwo = new Book("Гарри Поттер и Тайная комната", 2, "Роулинг Джоан Кэтлин");
+    Product bookThree = new Book("Гарри Поттер и узник Азкабана", 3, "Роулинг Джоан Кэтлин");
+    Product bookFour = new Book("Гарри Поттер и Кубок Огня", 4, "Роулинг Джоан Кэтлин");
+    Product bookFive = new Book("Гарри Поттер и Орден Феникса", 5, "Роулинг Джоан Кэтлин");
+    Product bookSix = new Book("Гарри Поттер и Принц-полукровка", 6, "Роулинг Джоан Кэтлин");
     Product smartphoneOne = new Smartphone("Apple 10", 7, "Китай");
     Product smartphoneTwo = new Smartphone("Apple 11", 8, "Китай");
     Product smartphoneThree = new Smartphone("Apple 12", 9, "Китай");
@@ -107,7 +107,6 @@ class ManagerProductTest {
     }
 
 
-
     @Test
     void shouldMatchesTrue() {
         assertTrue(manager.matches(smartphoneOne, "Apple 10"));
@@ -117,9 +116,6 @@ class ManagerProductTest {
     void shouldMatchesFalse() {
         assertFalse(manager.matches(smartphoneOne, "Mi"));
     }
-
-
-
 
 
 }
