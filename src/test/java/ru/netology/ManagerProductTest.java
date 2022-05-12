@@ -52,6 +52,7 @@ class ManagerProductTest {
 
     }
 
+
     @Test
     public void addOneProductWithOneProductInRepository() {
         oneProduct.save(bookTwo);
@@ -76,6 +77,15 @@ class ManagerProductTest {
 
     @Test
     public void shouldRemoveByIdOneProduct() {
+        int id = 1;
+        oneProduct.removeId(id);
+        Product[] actual = oneProduct.findAll();
+        Product[] expected = new Product[0];
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldRemoveByIdOneProductFailsId() {
         int id = 1;
         oneProduct.removeId(id);
         Product[] actual = oneProduct.findAll();
@@ -116,6 +126,15 @@ class ManagerProductTest {
     void shouldMatchesFalse() {
         assertFalse(manager.matches(smartphoneOne, "Mi"));
     }
+
+    @Test
+    void shouldRemoveIdFailsId() {
+        int id = 25;
+        assertThrows(NotFoundException.class, () -> {
+            allProduct.removeId(id);
+        });
+    }
+
 
 
 }

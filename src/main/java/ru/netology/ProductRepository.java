@@ -13,8 +13,20 @@ public class ProductRepository {
         return items;
     }
 
+    public Product findById(int id) {
+        for (Product product : items) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
+
 
     public void save(Product save) {
+        if (findById(save.getId()) != null) {
+            throw new AlreadyExistsException("Товар с id: " + save.getId() + " уже добавлен в корзину.");
+        }
         int length = items.length + 1;
         Product[] tmp = new Product[length];
         System.arraycopy(items, 0, tmp, 0, items.length);
@@ -30,6 +42,9 @@ public class ProductRepository {
     }
 
     public void removeById(int id) {
+        if (findById(id) == null) {
+            throw new NotFoundException("Товар с id: " + id + " не найден.");
+        }
         int length = items.length - 1;
         Product[] tmp = new Product[length];
         int index = 0;
